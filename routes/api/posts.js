@@ -39,4 +39,42 @@ router.post(
   }
 );
 
+// @route   POST /api/posts
+// @desc    Get all posts
+// @access  Private
+router.get('/', auth, async (req, res) => {
+  try {
+    // date -1 means most recent post comes first
+    const posts = await Post.find().sort({ date: -1 });
+
+    res.json(posts);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send('Server Error');
+  }
+});
+
+// @route   POST /api/posts/:id
+// @desc    Get post by ID
+// @access  Private
+router.get('/:id', auth, async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id);
+
+    if (!post) {
+      return res.status(404).json({ msg: 'Post not Found' });
+    }
+
+    res.json(post);
+  } catch (error) {
+    console.error(error.message);
+
+    if (error.kind == 'ObjectId') {
+      return res.status(404).json({ msg: 'Post not Found' });
+    }
+
+    res.status(500).send('Server Error');
+  }
+});
+
 module.exports = router;
