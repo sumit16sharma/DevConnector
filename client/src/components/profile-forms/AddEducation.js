@@ -81,7 +81,6 @@ const AddEducation = ({ addEducation, history }) => {
             <input
               type='checkbox'
               name='current'
-              value=''
               checked={current}
               value={current}
               onChange={(e) => {
@@ -125,4 +124,4 @@ AddEducation.propTypes = {
   addEducation: PropTypes.func.isRequired,
 };
 
-export default connect(null, { addEducation })(AddEducation);
+export default connect(null, { addEducation })(withRouter(AddEducation));
