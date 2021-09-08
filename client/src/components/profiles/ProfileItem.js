@@ -16,8 +16,10 @@ const ProfileItem = ({
       <img class='round-img' src={avatar} alt='' />
       <div>
         <h2>{name}</h2>
-        <p>{status}</p>
-        <p>{location}</p>
+        <p>
+          {status} {company && <span> at {company}</span>}
+        </p>
+        <p className='my-1'>{location && <span>{location}</span>}</p>
         <Link to={`/profile/${_id}`} class='btn btn-primary'>
           View Profile
         </Link>
