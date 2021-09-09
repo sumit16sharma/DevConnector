@@ -45,7 +45,7 @@ const EditProfile = ({
       instagram: loading || !profile.social ? '' : profile.social.instagram,
       youtube: loading || !profile.social ? '' : profile.social.youtube,
     });
-  }, [loading, getCurrentProfile, profile]);
+  }, [loading, getCurrentProfile]);
 
   const {
     company,
@@ -62,8 +62,9 @@ const EditProfile = ({
     instagram,
   } = formData;
 
-  const onChange = (e) =>
+  const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -72,7 +73,7 @@ const EditProfile = ({
 
   return (
     <Fragment>
-      <h1 className='large text-primary'>Create Your Profile</h1>
+      <h1 className='large text-primary'>Edit Your Profile</h1>
       <p className='lead'>
         <i className='fas fa-user'></i> Let's get some information to make your
         profile stand out
