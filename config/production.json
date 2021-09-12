@@ -1,0 +1,6 @@
+{
+    "mongoURI": "mongodb+srv://sumit123:sumit123@devconnector.plizw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "jwtSecret": "mysecrettoken",
+    "githubClientId": "e3f45a7058229cd9d4a5",
+    "githubSecret": "0ff953a42544b0c134e1b5d0fd5c62db2130fdc8"
+}
